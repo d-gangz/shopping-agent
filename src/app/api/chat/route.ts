@@ -12,11 +12,11 @@ export type ToolResult = {
 // Tool to get items by type
 const getItemsByTypeTool = tool({
   description:
-    "Get product recommendations by type (bbq or cat), with optional exclusions. If user has already seen all items and they still want to see them again, you should use this tool again.",
+    "Get dog product recommendations by type (toys, beds, food, grooming, training, health), with optional exclusions.",
   parameters: z.object({
     type: z
-      .enum(["bbq", "cat"])
-      .describe("Type of items to retrieve (bbq or cat)"),
+      .enum(["toys", "beds", "food", "grooming", "training", "health"])
+      .describe("Type of dog items to retrieve"),
     excludeItems: z
       .array(z.string())
       .describe(
@@ -32,8 +32,8 @@ const getItemsByTypeTool = tool({
     return {
       reply:
         items.length === 0
-          ? "Oh you have already seen all the items! Would you like to see them again?"
-          : `Here are some ${type} items I found:`,
+          ? "Oh you have already seen all the items in this category! Would you like to see them again?"
+          : `Here are some ${type} items I found for your dog:`,
       items: items,
     };
   },
@@ -43,20 +43,25 @@ const tools = {
   getItemsByType: getItemsByTypeTool,
 };
 
-// Allow streaming responses up to 30 seconds
 export const maxDuration = 30;
 
 export async function POST(req: Request) {
   const { messages } = await req.json();
 
   const result = streamText({
-    model: openai("gpt-4o"),
-    system: `You are a helpful shopping assistant specializing in BBQ equipment and cat products. 
-You can only provide recommendations for these two categories.
-- For BBQ equipment, you can help customers find grills, accessories, and cooking tools
-- For cat products, you can help customers find cat furniture, litter boxes, and other cat care items
-Please ask users to specify whether they're interested in BBQ or cat products if unclear.
-Use the getItemsByType tool to fetch relevant product recommendations. You should always use the tool to fetch items.`,
+    model: openai("gpt-4"),
+    system: `You are a helpful pet shop assistant specializing in dog products. 
+You can recommend products in the following categories:
+- Toys: Interactive and durable toys for play and mental stimulation
+- Beds: Comfortable sleeping solutions for all dog sizes
+- Food: High-quality nutrition for different life stages
+- Grooming: Tools and products for maintaining coat and hygiene
+- Training: Equipment and tools for behavioral training
+- Health: Products for wellness and preventive care
+
+Please ask users about their dog's size, age, or specific needs if unclear.
+Use the getItemsByType tool to fetch relevant product recommendations. You should always use the tool to fetch items.
+When recommending products, consider factors like the dog's size, age, and activity level if mentioned by the user.`,
     messages,
     tools,
   });

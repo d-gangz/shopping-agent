@@ -1,94 +1,180 @@
+export type DogItemType =
+  | "toys"
+  | "beds"
+  | "food"
+  | "grooming"
+  | "training"
+  | "health";
+
 export type Item = {
   name: string;
   description: string;
-  type: "bbq" | "cat";
+  type: DogItemType;
   buyLink: string;
+  price: number;
 };
 
 export const itemsArray: Item[] = [
   {
-    name: "Weber Original Kettle Premium Charcoal Grill",
+    name: "KONG Extreme Goodie Bone",
     description:
-      "Classic 22-inch charcoal grill with precision heat control and one-touch cleaning system",
-    type: "bbq",
+      "Ultra-durable rubber bone toy with treat-dispensing ends for aggressive chewers",
+    type: "toys",
     buyLink:
-      "https://www.weber.com/US/en/grills/charcoal-grills/original-kettle-series/14401001.html",
+      "https://www.amazon.com/KONG-Extreme-Goodie-Bone-Large/dp/B0002AR0II",
+    price: 12.99,
   },
   {
-    name: "Thermapen ONE Digital Meat Thermometer",
+    name: "PetFusion Ultimate Dog Bed",
     description:
-      "Professional-grade instant-read thermometer with ±0.5°F accuracy and waterproof design",
-    type: "bbq",
-    buyLink: "https://www.thermoworks.com/thermapen-one/",
+      "Memory foam orthopedic bed with water-resistant cover and bolster cushions",
+    type: "beds",
+    buyLink:
+      "https://www.amazon.com/PetFusion-Ultimate-Solid-Memory-Orthopedic/dp/B00TQ47CPW",
+    price: 89.95,
   },
   {
-    name: "Traeger Pro 780 Wood Pellet Grill",
-    description:
-      "WiFi-enabled pellet grill with 780 sq in cooking space and precision temperature control",
-    type: "bbq",
-    buyLink: "https://www.traeger.com/pellet-grills/pro/780",
+    name: "Blue Buffalo Life Protection Formula",
+    description: "Natural dry dog food with real meat as first ingredient",
+    type: "food",
+    buyLink:
+      "https://www.amazon.com/Blue-Buffalo-Protection-Formula-Adult/dp/B000GF3T6K",
+    price: 54.99,
   },
   {
-    name: "Modkat XL Litter Box",
-    description:
-      "Top-entry litter box with seamless base design and reusable liner for easy cleaning",
-    type: "cat",
-    buyLink: "https://modkat.com/products/modkat-xl-litter-box",
+    name: "Earthbath All Natural Pet Shampoo",
+    description: "Gentle oatmeal and aloe vera shampoo for sensitive skin",
+    type: "grooming",
+    buyLink:
+      "https://www.amazon.com/Earthbath-Natural-Oatmeal-Aloe-Shampoo/dp/B0002IEYIE",
+    price: 12.99,
   },
   {
-    name: "Cat Tree Kingdom Giant Cat Tower",
-    description:
-      "Multi-level cat tower with scratching posts, hideaways and perches for multiple cats",
-    type: "cat",
-    buyLink: "https://cattreekingdom.com/products/giant-cat-tower",
+    name: "PetSafe Remote Training Collar",
+    description: "Adjustable training collar with 15 levels of correction",
+    type: "training",
+    buyLink:
+      "https://www.amazon.com/PetSafe-Remote-Trainer-Waterproof-Rechargeable/dp/B00QHWX0GO",
+    price: 129.99,
   },
   {
-    name: "Catit PIXI Smart Water Fountain",
-    description:
-      "Smart pet fountain with UV sterilization and water quality monitoring via app",
-    type: "cat",
-    buyLink: "https://catit.com/shop/pixi-smart-fountain/",
+    name: "Zesty Paws Multivitamin Bites",
+    description: "8-in-1 supplement with glucosamine, probiotics and vitamins",
+    type: "health",
+    buyLink:
+      "https://www.amazon.com/Zesty-Paws-Multivitamin-Digestive-Supplement/dp/B00H0WL2EA",
+    price: 25.97,
   },
   {
-    name: "Meater+ Smart Wireless Meat Thermometer",
-    description:
-      "Wireless smart thermometer with 165ft range and guided cooking app integration",
-    type: "bbq",
-    buyLink: "https://meater.com/product/meater-plus/",
+    name: "Chuckit! Ultra Ball",
+    description: "High-bounce durable rubber ball perfect for fetch",
+    type: "toys",
+    buyLink:
+      "https://www.amazon.com/Chuckit-Ultra-Ball-Medium-2-Pack/dp/B000F4AVPA",
+    price: 8.99,
   },
   {
-    name: "Looftlighter Electric Fire Starter",
-    description:
-      "Powerful electric charcoal starter that ignites coals in 60 seconds without chemicals",
-    type: "bbq",
-    buyLink: "https://looftlighter.com/products/looftlighter-original",
+    name: "FURminator Undercoat deShedding Tool",
+    description: "Professional grooming brush to reduce shedding",
+    type: "grooming",
+    buyLink:
+      "https://www.amazon.com/FURminator-Undercoat-deShedding-Tool-Large/dp/B000FSN0Y4",
+    price: 34.99,
   },
   {
-    name: "BBQ Dragon Spin Grate",
-    description:
-      "Rotating grill grate system for even cooking and easier food handling",
-    type: "bbq",
-    buyLink: "https://bbqdragon.com/products/spin-grate",
+    name: "Taste of the Wild Grain-Free Dog Food",
+    description: "Premium dry food with roasted meat and natural ingredients",
+    type: "food",
+    buyLink:
+      "https://www.amazon.com/Taste-Wild-Prairie-Grain-Free-Protein/dp/B000W5SLB8",
+    price: 49.99,
   },
   {
-    name: "PetFusion Ultimate Cat Scratcher Lounge",
-    description:
-      "Premium cardboard scratcher and lounge with curved design and reversible surfaces",
-    type: "cat",
-    buyLink: "https://petfusion.com/products/ultimate-cat-scratcher-lounge",
+    name: "Outward Hound Fun Feeder",
+    description: "Slow feeder bowl to prevent bloat and improve digestion",
+    type: "training",
+    buyLink:
+      "https://www.amazon.com/Outward-Hound-Feeder-Bloat-Small/dp/B00FPKNRF0",
+    price: 18.99,
   },
   {
-    name: "Petlibro Automatic Cat Feeder",
-    description:
-      "Smart pet feeder with programmable meals, portion control and voice recording",
-    type: "cat",
-    buyLink: "https://petlibro.com/products/automatic-pet-feeder",
+    name: "KONG Classic Dog Toy",
+    description: "Durable rubber toy that can be filled with treats",
+    type: "toys",
+    buyLink:
+      "https://www.amazon.com/KONG-Classic-Durable-Natural-Rubber/dp/B0002AR0I8",
+    price: 12.99,
   },
   {
-    name: "Hepper Cat Nest Bed",
-    description:
-      "Modern pod-style cat bed with plush interior and elevated design for comfort",
-    type: "cat",
-    buyLink: "https://www.hepper.com/products/nest-bed",
+    name: "Nutramax Cosequin Joint Supplement",
+    description: "Glucosamine and chondroitin supplement for joint health",
+    type: "health",
+    buyLink:
+      "https://www.amazon.com/Nutramax-Cosequin-Maximum-Strength-Chewable/dp/B00028ZL7Q",
+    price: 32.99,
+  },
+  {
+    name: "Barkbox Memory Foam Dog Bed",
+    description: "Therapeutic gel memory foam bed with machine washable cover",
+    type: "beds",
+    buyLink:
+      "https://www.amazon.com/BarkBox-Orthopedic-Ultra-Plush-Pressure-Relief/dp/B073F5CXQH",
+    price: 69.99,
+  },
+  {
+    name: "TropiClean PerfectFur Shampoo",
+    description: "Professional grade shampoo for thick or long coats",
+    type: "grooming",
+    buyLink:
+      "https://www.amazon.com/TropiClean-PerfectFur-Thick-Shampoo-Dogs/dp/B07NDNV5RK",
+    price: 14.99,
+  },
+  {
+    name: "Mammoth Flossy Chews Rope Toy",
+    description: "Cotton blend rope for tug-of-war and dental health",
+    type: "toys",
+    buyLink:
+      "https://www.amazon.com/Mammoth-Flossy-Chews-Cotton-White/dp/B003WH17EQ",
+    price: 9.99,
+  },
+  {
+    name: "Pet Naturals Daily Multivitamin",
+    description: "Chicken liver flavored vitamin and mineral supplement",
+    type: "health",
+    buyLink:
+      "https://www.amazon.com/Pet-Naturals-Vermont-Daily-Multi/dp/B002XZXVPS",
+    price: 15.99,
+  },
+  {
+    name: "Trixie Dog Activity Strategy Game",
+    description: "Interactive puzzle toy for mental stimulation",
+    type: "training",
+    buyLink:
+      "https://www.amazon.com/Trixie-Pet-Products-Strategy-Game/dp/B0054Q9TMA",
+    price: 24.99,
+  },
+  {
+    name: "K&H Pet Products Elevated Dog Bed",
+    description: "Raised mesh bed for outdoor and indoor use",
+    type: "beds",
+    buyLink:
+      "https://www.amazon.com/K-H-Pet-Products-Original-Elevated/dp/B004E2NGWC",
+    price: 44.99,
+  },
+  {
+    name: "Jolly Pets Tug-n-Toss Ball",
+    description: "Heavy duty rubber ball with handle for interactive play",
+    type: "toys",
+    buyLink:
+      "https://www.amazon.com/Jolly-Pets-Tug-n-Toss-6-Inch-Red/dp/B0002DK9OW",
+    price: 15.99,
+  },
+  {
+    name: "VetriScience Canine Plus Senior",
+    description: "Comprehensive multivitamin for senior dogs",
+    type: "health",
+    buyLink:
+      "https://www.amazon.com/VetriScience-Laboratories-Canine-Plus-Senior/dp/B002FNZRV0",
+    price: 28.99,
   },
 ];
