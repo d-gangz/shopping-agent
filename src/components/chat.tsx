@@ -58,7 +58,7 @@ Tell me about your dog and what you're looking for, and I'll help you find the b
   console.log("messages", messages);
 
   return (
-    <div className="flex flex-col h-screen">
+    <div className="flex flex-col h-[100dvh]">
       <div className="flex-1 overflow-y-auto mb-4" ref={containerRef}>
         <div className="max-w-2xl mx-auto p-4 space-y-4">
           {messages.map((message) => (
@@ -113,13 +113,13 @@ Tell me about your dog and what you're looking for, and I'll help you find the b
         <div ref={endRef} />
       </div>
 
-      <div className="max-w-2xl mx-auto w-full px-4 pb-4">
-        <form onSubmit={handleSubmit} className="flex gap-2">
+      <div className="max-w-2xl mx-auto w-full px-4 pb-4 pb-safe">
+        <form onSubmit={handleSubmit} className="flex gap-2 sticky bottom-0">
           <input
             value={input}
             onChange={handleInputChange}
             placeholder="Type a message..."
-            className="flex-1 rounded-lg border border-gray-300 p-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+            className="flex-1 rounded-lg border border-gray-300 p-2 focus:outline-none focus:ring-2 focus:ring-blue-500 bg-white"
             disabled={isLoading}
           />
           <button
