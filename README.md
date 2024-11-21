@@ -1,8 +1,28 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# AI Chat Shopping Assistant
+
+An intelligent shopping experience powered by Next.js that provides real-time product recommendations through natural conversation. Users can discover and purchase products directly through an intuitive chat interface.
+
+## Key Features
+
+- 🤖 Intent-based chat interface for natural product discovery
+- 🛍️ Real-time product recommendations displayed as interactive cards
+- 💳 Seamless in-chat purchasing experience
+- ⚡ Built with Next.js, TypeScript, and Tailwind CSS
+- 🔄 Streaming AI responses with Vercel AI SDK
 
 ## Getting Started
 
-First, run the development server:
+First, install dependencies:
+
+```bash
+npm install
+# or
+yarn install
+# or
+pnpm install
+```
+
+Then run the development server:
 
 ```bash
 npm run dev
@@ -10,27 +30,41 @@ npm run dev
 yarn dev
 # or
 pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the chat interface.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Tech Stack
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- [Next.js](https://nextjs.org) - React framework for production
+- [Vercel AI SDK](https://sdk.vercel.ai/docs) - For streaming AI chat responses
+- TypeScript - For type safety
+- Tailwind CSS - For styling
+- AI/ML - For intent recognition and product recommendations
+- [Vercel](https://vercel.com) - For deployment
 
-## Learn More
+## Project Structure
 
-To learn more about Next.js, take a look at the following resources:
+```
+src/
+├── app/              # Next.js app directory
+│   └── api/         # API routes including AI endpoints
+├── components/       # Reusable UI components
+│   ├── chat/        # Chat interface components
+│   └── products/    # Product card components
+├── lib/             # Utility functions and AI logic
+│   └── ai/          # AI configuration and helpers
+└── types/           # TypeScript definitions
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Deployment
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Deploy on [Vercel](https://vercel.com/new) for the best experience:
 
-## Deploy on Vercel
+1. Push your code to GitHub
+2. Import your repository to Vercel
+3. Deploy
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Contributing
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Contributions are welcome! Please feel free to submit a Pull Request.
