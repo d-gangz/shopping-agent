@@ -32,7 +32,7 @@ const getItemsByTypeTool = tool({
     return {
       reply:
         items.length === 0
-          ? "Oh you have already seen all the items in this category! Would you like to see them again?"
+          ? "Oh you have already seen all the items in this category! Would you like to see them again? Or maybe you'd like to try a different category (toys, beds, food, grooming, training, health)?"
           : `Here are some ${type} items I found for your dog:`,
       items: items,
     };
