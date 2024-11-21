@@ -39,6 +39,7 @@ export default function Chat() {
         <div className="max-w-2xl mx-auto p-4 space-y-4">
           {messages.map((message) => (
             <div key={message.id}>
+              {/* Display user and assistant messages if message.content is not empty */}
               {message.content && (
                 <div
                   className={`flex ${
@@ -57,6 +58,7 @@ export default function Chat() {
                 </div>
               )}
 
+              {/* Display UI based on tool results if any */}
               {message.role === "assistant" &&
                 message.toolInvocations?.map((tool) => {
                   if (tool.state === "result") {
