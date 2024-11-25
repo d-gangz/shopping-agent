@@ -4,6 +4,7 @@ import { useChat } from "ai/react";
 import { ToolResult } from "@/app/api/chat/route";
 import { useScrollToBottom } from "@/lib/hooks/use-scroll-to-bottom";
 import { Item } from "@/lib/constants";
+import ReactMarkdown from "react-markdown";
 
 // Add a new ItemCard component
 function ItemCard({ item }: { item: Item }) {
@@ -42,12 +43,12 @@ export default function Chat() {
           role: "assistant",
           content: `Hello! 👋 I'm your pet shop assistant, specializing in dog products. I can help you find the perfect items for your furry friend in these categories:
 
-• 🦴 Toys - Interactive and durable toys for play
-• 🛏️ Beds - Comfortable sleeping solutions
-• 🍖 Food - High-quality nutrition options
-• ✂️ Grooming - Tools for coat and hygiene
-• 🎯 Training - Equipment for behavioral training
-• ❤️ Health - Products for wellness and care
+* 🦴 **Toys** - Interactive and durable toys for play
+* 🛏️ **Beds** - Comfortable sleeping solutions
+* 🍖 **Food** - High-quality nutrition options
+* ✂️ **Grooming** - Tools for coat and hygiene
+* 🎯 **Training** - Equipment for behavioral training
+* ❤️ **Health** - Products for wellness and care
 
 Tell me about your dog and what you're looking for, and I'll help you find the best products!`,
         },
@@ -63,7 +64,7 @@ Tell me about your dog and what you're looking for, and I'll help you find the b
         <div className="max-w-2xl mx-auto p-4 space-y-4">
           {messages.map((message) => (
             <div key={message.id}>
-              {/* Display user and assistant messages if message.content is not empty */}
+              {/* Updated message content display with ReactMarkdown */}
               {message.content && (
                 <div
                   className={`flex ${
@@ -77,7 +78,32 @@ Tell me about your dog and what you're looking for, and I'll help you find the b
                         : "bg-gray-200 text-black"
                     }`}
                   >
-                    {message.content}
+                    <ReactMarkdown
+                      components={{
+                        // Style links
+                        a: (props) => (
+                          <a
+                            {...props}
+                            className="text-blue-600 hover:underline"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                          />
+                        ),
+                        // Style lists
+                        ul: (props) => (
+                          <ul {...props} className="list-disc ml-4" />
+                        ),
+                        ol: (props) => (
+                          <ol {...props} className="list-decimal ml-4" />
+                        ),
+                        // Style paragraphs
+                        p: (props) => (
+                          <p {...props} className="mb-2 last:mb-0" />
+                        ),
+                      }}
+                    >
+                      {message.content}
+                    </ReactMarkdown>
                   </div>
                 </div>
               )}
