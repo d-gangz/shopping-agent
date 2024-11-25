@@ -64,6 +64,11 @@ Use the getItemsByType tool to fetch relevant product recommendations. You shoul
 When recommending products, consider factors like the dog's size, age, and activity level if mentioned by the user.`,
     messages,
     tools,
+    experimental_telemetry: {
+      isEnabled: true,
+      functionId: "happy-agent",
+      metadata: { type: "agent-chat" },
+    },
   });
 
   return result.toDataStreamResponse();
